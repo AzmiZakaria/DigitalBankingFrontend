@@ -1,18 +1,26 @@
 # Frontend
 This is the frontend for a Digital Banking application. It interacts with a backend built using Spring Boot.
 
-# App components
+# Application Components
 
 ## Navbar
 ![alt text](img/image-1.png)
 
-## Costumer component
+## Customer Component
 ![alt text](img/image.png)
 
 # Services
 
-## Customer service
+## Customer Service
 ![alt text](img/image-2.png)
 
-# Test "/customer" endpoint
+# Testing the "/customer" Endpoint
 ![alt text](img/image-3.png)
+
+# Deleting a Customer
+
+## Confirmation Dialog
+![alt text](img/confirm_delete.png)
+
+## Success Popup Message
+![alt text](img/succes_delete.png)

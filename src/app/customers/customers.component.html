@@ -5,6 +5,9 @@
       <div *ngIf="errorMessage" class="alert alert-danger">
         {{errorMessage}}
       </div>
+      <div *ngIf="successMessage" class="alert alert-success">
+        {{successMessage}}
+      </div>
       
       <table class="table table-striped" *ngIf="customers.length > 0">
         <thead>

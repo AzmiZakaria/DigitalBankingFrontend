@@ -1,0 +1,40 @@
+<div class="container mt-3">
+  <div class="card">
+    <div class="card-header">Customers List</div>
+    <div class="card-body">
+      <div *ngIf="errorMessage" class="alert alert-danger">
+        {{errorMessage}}
+      </div>
+      
+      <table class="table table-striped" *ngIf="customers.length > 0">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let customer of customers">
+            <td>{{customer.id}}</td>
+            <td>{{customer.name}}</td>
+            <td>{{customer.email}}</td>
+            <td>
+              <button class="btn btn-danger ms-1" (click)="deleteCustomer(customer.id)">
+                Delete
+              </button>
+              <button class="btn btn-primary ms-1" [routerLink]="['/customer-edit', customer.id]">
+                Edit
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      
+      <div *ngIf="customers.length === 0" class="alert alert-info">
+        No customers found
+      </div>
+    </div>
+  </div>
+</div>

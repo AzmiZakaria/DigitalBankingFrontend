@@ -1,7 +1,7 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CustumerService, Customer } from '../services/custumer.service';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Router } from '@angular/router';
 
 @Component({
   selector: 'app-customers',
@@ -13,10 +13,19 @@ import { RouterModule } from '@angular/router';
 export class CustomersComponent implements OnInit {
   customers: Customer[] = [];
   errorMessage: string = '';
-  successMessage: string = '';  // Add this line
+  successMessage: string = '';
   service = inject(CustumerService);
 
-  constructor(private customerService: CustumerService) {}
+  constructor(
+    private customerService: CustumerService,
+    private router: Router
+  ) {
+    const navigation = this.router.getCurrentNavigation();
+    if (navigation?.extras.state?.['successMessage']) {
+      this.successMessage = navigation.extras.state['successMessage'];
+      setTimeout(() => this.successMessage = '', 3000);
+    }
+  }
 
   ngOnInit(): void {
     this.loadCustomers();

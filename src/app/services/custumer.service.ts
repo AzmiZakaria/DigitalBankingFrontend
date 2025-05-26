@@ -8,6 +8,11 @@ export interface Customer {
   email: string;
 }
 
+export interface CustomerForm {
+  name: string;
+  email: string;
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -24,7 +29,7 @@ export class CustumerService {
     return this.http.get<Customer>(`${this.backendUrl}/customers/${id}`);
   }
 
-  saveCustomer(customer: Customer): Observable<Customer> {
+  saveCustomer(customer: CustomerForm): Observable<Customer> {
     return this.http.post<Customer>(`${this.backendUrl}/customers`, customer);
   }
 

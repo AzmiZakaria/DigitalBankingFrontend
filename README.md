@@ -24,3 +24,14 @@ This is the frontend for a Digital Banking application. It interacts with a back
 
 ## Success Popup Message
 ![alt text](img/succes_delete.png)
+
+# Add Customer
+
+## add button to the costumer compenent html
+![alt text](img/cutomers_add_button.png)
+
+## Form of add customer
+![alt text](img/add_customer.png)
+
+## Succes add Customer
+![alt text](img/succes_add_customer.png)

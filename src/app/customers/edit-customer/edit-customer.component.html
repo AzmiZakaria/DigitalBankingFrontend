@@ -1,0 +1,32 @@
+<div class="container mt-3">
+  <div class="card">
+    <div class="card-header">Edit Customer</div>
+    <div class="card-body">
+      <div *ngIf="errorMessage" class="alert alert-danger">
+        {{errorMessage}}
+      </div>
+      
+      <form [formGroup]="customerForm" (ngSubmit)="onSubmit()" *ngIf="customerForm">
+        <div class="mb-3">
+          <label class="form-label">Name</label>
+          <input type="text" class="form-control" formControlName="name">
+          <div class="text-danger" *ngIf="customerForm.get('name')?.touched && customerForm.get('name')?.errors?.['required']">
+            Name is required
+          </div>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Email</label>
+          <input type="email" class="form-control" formControlName="email">
+          <div class="text-danger" *ngIf="customerForm.get('email')?.touched && customerForm.get('email')?.errors?.['required']">
+            Email is required
+          </div>
+          <div class="text-danger" *ngIf="customerForm.get('email')?.touched && customerForm.get('email')?.errors?.['email']">
+            Invalid email format
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary" [disabled]="!customerForm.valid">Update</button>
+        <button type="button" class="btn btn-secondary ms-2" (click)="onCancel()">Cancel</button>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,4 +1,5 @@
-# Frontend
+# Digital Banking Frontend
+
 This is the frontend for a Digital Banking application. It interacts with a backend built using Spring Boot.
 
 # Application Components
@@ -25,13 +26,21 @@ This is the frontend for a Digital Banking application. It interacts with a back
 ## Success Popup Message
 ![alt text](img/succes_delete.png)
 
-# Add Customer
+# Adding a Customer
 
-## add button to the costumer compenent html
+## Add Button in the Customer Component HTML
 ![alt text](img/cutomers_add_button.png)
 
-## Form of add customer
+## Add Customer Form
 ![alt text](img/add_customer.png)
 
-## Succes add Customer
+## Successful Customer Addition
 ![alt text](img/succes_add_customer.png)
+
+# Editing a Customer
+
+## Edit Customer Form
+![alt text](img/customer_update_form.png)
+
+## Successful Customer Update
+![alt text](img/customer_succes_update.png)

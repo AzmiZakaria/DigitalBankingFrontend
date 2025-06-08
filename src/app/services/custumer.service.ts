@@ -40,4 +40,8 @@ export class CustumerService {
   deleteCustomer(id: number): Observable<void> {
     return this.http.delete<void>(`${this.backendUrl}/customers/${id}`);
   }
+
+  searchCustomers(keyword: string): Observable<Customer[]> {
+    return this.http.get<Customer[]>(`${this.backendUrl}/customers/search?keyword=${keyword}`);
+  }
 }

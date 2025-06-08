@@ -44,3 +44,6 @@ This is the frontend for a Digital Banking application. It interacts with a back
 
 ## Successful Customer Update
 ![alt text](img/customer_succes_update.png)
+
+# Search Customers by keywords
+![alt text](img/searchçcustomers.png)

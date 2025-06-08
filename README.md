@@ -15,35 +15,39 @@ This is the frontend for a Digital Banking application. It interacts with a back
 ## Customer Service
 ![alt text](img/image-2.png)
 
-# Testing the "/customer" Endpoint
+### Testing the "/customer" Endpoint
 ![alt text](img/image-3.png)
 
-# Deleting a Customer
+### Deleting a Customer
 
-## Confirmation Dialog
+#### Confirmation Dialog
 ![alt text](img/confirm_delete.png)
 
-## Success Popup Message
+#### Success Popup Message
 ![alt text](img/succes_delete.png)
 
-# Adding a Customer
+### Adding a Customer
 
-## Add Button in the Customer Component HTML
+#### Add Button in the Customer Component HTML
 ![alt text](img/cutomers_add_button.png)
 
-## Add Customer Form
+#### Add Customer Form
 ![alt text](img/add_customer.png)
 
-## Successful Customer Addition
+#### Successful Customer Addition
 ![alt text](img/succes_add_customer.png)
 
-# Editing a Customer
+### Editing a Customer
 
-## Edit Customer Form
+#### Edit Customer Form
 ![alt text](img/customer_update_form.png)
 
-## Successful Customer Update
+#### Successful Customer Update
 ![alt text](img/customer_succes_update.png)
 
-# Search Customers by keywords
+### Search Customers by keywords
 ![alt text](img/searchçcustomers.png)
+
+## Account Service
+### Searching  account infos by it's unique ID
+![alt text](img/account.png)

@@ -1,0 +1,87 @@
+<div class="container mt-3">
+  <div class="card">
+    <div class="card-header">
+      <h5>New Operation</h5>
+    </div>
+    <div class="card-body">
+      <form [formGroup]="operationForm" (ngSubmit)="onSubmit()">
+        <!-- Operation Type -->
+        <div class="mb-3">
+          <label class="form-label">Operation Type</label>
+          <select class="form-select" formControlName="operationType">
+            <option value="CREDIT">Credit</option>
+            <option value="DEBIT">Debit</option>
+            <option value="TRANSFER">Transfer</option>
+          </select>
+        </div>
+
+        <!-- Amount -->
+        <div class="mb-3">
+          <label class="form-label">Amount</label>
+          <div class="input-group">
+            <input 
+              type="number" 
+              class="form-control"
+              [class.is-invalid]="isSubmitted && operationForm.get('amount')?.invalid"
+              formControlName="amount"
+            >
+            <span class="input-group-text">DH</span>
+          </div>
+          <div class="invalid-feedback" *ngIf="isSubmitted && operationForm.get('amount')?.errors">
+            <span *ngIf="operationForm.get('amount')?.errors?.['required']">Amount is required</span>
+            <span *ngIf="operationForm.get('amount')?.errors?.['min']">Amount must be greater than 0</span>
+          </div>
+        </div>
+
+        <!-- Description -->
+        <div class="mb-3">
+          <label class="form-label">Description</label>
+          <input 
+            type="text" 
+            class="form-control"
+            [class.is-invalid]="isSubmitted && operationForm.get('description')?.invalid"
+            formControlName="description"
+          >
+          <div class="invalid-feedback" *ngIf="isSubmitted && operationForm.get('description')?.errors?.['required']">
+            Description is required
+          </div>
+        </div>
+
+        <!-- Destination Account (only for transfers) -->
+        <div class="mb-3" *ngIf="showDestinationAccount">
+          <label class="form-label">Destination Account</label>
+          <input 
+            type="text" 
+            class="form-control"
+            [class.is-invalid]="isSubmitted && operationForm.get('destinationAccount')?.invalid"
+            formControlName="destinationAccount"
+          >
+          <div class="invalid-feedback" *ngIf="isSubmitted && operationForm.get('destinationAccount')?.errors?.['required']">
+            Destination account is required for transfers
+          </div>
+        </div>
+
+        <!-- Messages -->
+        <div *ngIf="errorMessage" class="alert alert-danger">
+          {{errorMessage}}
+        </div>
+        <div *ngIf="successMessage" class="alert alert-success">
+          {{successMessage}}
+        </div>
+
+        <!-- Submit Button -->
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+          <button 
+            type="button" 
+            class="btn btn-secondary" 
+            [routerLink]="['/accounts', accountId]"
+          >Cancel</button>
+          <button 
+            type="submit" 
+            class="btn btn-primary"
+          >Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

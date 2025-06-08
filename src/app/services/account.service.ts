@@ -27,6 +27,24 @@ export interface AccountOperation {
   description: string;
 }
 
+export interface DebitDTO {
+  accountId: string;
+  amount: number;
+  description: string;
+}
+
+export interface CreditDTO {
+  accountId: string;
+  amount: number;
+  description: string;
+}
+
+export interface TransferDTO {
+  accountSource: string;
+  accountDestination: string;
+  amount: number;
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -45,5 +63,16 @@ export class AccountService {
 
   getAccountOperations(accountId: string): Observable<AccountOperation[]> {
     return this.http.get<AccountOperation[]>(`${this.backendUrl}/accounts/${accountId}/operations`);
+  }
+    debit(debitDTO: DebitDTO): Observable<DebitDTO> {
+    return this.http.post<DebitDTO>(`${this.backendUrl}/accounts/debit`, debitDTO);
+  }
+
+  credit(creditDTO: CreditDTO): Observable<CreditDTO> {
+    return this.http.post<CreditDTO>(`${this.backendUrl}/accounts/credit`, creditDTO);
+  }
+
+  transfer(transferDTO: TransferDTO): Observable<void> {
+    return this.http.post<void>(`${this.backendUrl}/accounts/transfer`, transferDTO);
   }
 }

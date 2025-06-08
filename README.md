@@ -51,3 +51,15 @@ This is the frontend for a Digital Banking application. It interacts with a back
 ## Account Service
 ### Searching  account infos by it's unique ID
 ![alt text](img/account.png)
+### Add operation interface
+![alt text](img/operation_interface.png)
+
+#### Dsplay the current opperations
+![alt text](img/curr_operations.png)
+
+#### Add Opeartion for the searched account 
+![alt text](img/operation_add.png)
+
+#### check result of an operation
+![alt text](img/add_operation_result.png)
+

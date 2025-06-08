@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { RouterModule, ActivatedRoute } from '@angular/router';
 import { AccountService, BankAccount, AccountOperation } from '../services/account.service';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 
@@ -11,15 +11,30 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms';
   templateUrl: './accounts.component.html',
   styleUrl: './accounts.component.css'
 })
-export class AccountsComponent {
+export class AccountsComponent implements OnInit {
   accountId = new FormControl('');
   currentAccount: BankAccount | null = null;
   operations: AccountOperation[] = [];
   errorMessage: string = '';
 
-  constructor(private accountService: AccountService) {}
+  constructor(
+    private accountService: AccountService,
+    private route: ActivatedRoute
+  ) {}
 
-  searchAccount() {
+  ngOnInit() {
+    // Check for accountId in query params
+    this.route.queryParams.subscribe(params => {
+      const accountId = params['accountId'];
+      if (accountId) {
+        this.accountId.setValue(accountId);
+        this.searchAccount();
+      }
+    });
+  }
+
+  // Make searchAccount public so it can be called after navigation
+  public searchAccount() {
     if (!this.accountId.value) {
       this.errorMessage = 'Please enter an account ID';
       return;
